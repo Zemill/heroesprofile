@@ -2,7 +2,10 @@ name: PHPUnit
 
 on:
   pull_request:
-    branches: 
+    branches:
+      - develop
+  push:
+    branches:
       - develop
 
 jobs:
@@ -34,16 +37,19 @@ jobs:
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
       - name: Cache composer dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
-        run: composer install --no-progress --no-suggest --no-interaction --prefer-dist --optimize-autoloader
+        run: composer install --no-progress --no-interaction --prefer-dist --optimize-autoloader
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+
+      - name: Inject game data images
+        run: sh images.sh
 
       - name: Create .env
         run: cp .env.example .env
@@ -52,4 +58,4 @@ jobs:
         run: php artisan key:generate
 
       - name: Test with phpunit
-        run: vendor/bin/phpunit --coverage-text
+        run: vendor/bin/phpunit --verbose --coverage-text

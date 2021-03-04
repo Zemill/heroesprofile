@@ -88,12 +88,16 @@ class DraftController extends Controller
     "|"  . implode(",", $role_league_tier);
 
     $ban_draft_order_data = Cache::remember($cache, $cache_time, function () use ($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region){
-      $ban_data = new \GlobalHeroDraftOrder($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region);
+      $ban_data = new \GlobalHeroDraftOrderData($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region);
       $return_data = $ban_data->getData(array(0, 1, 2, 3));
       return $return_data;
     });
 
-    $current_pick_data = $ban_draft_order_data[$request["currentPickNumber"]];
+    if(isset($ban_draft_order_data[$request["currentPickNumber"]])){
+      $current_pick_data = $ban_draft_order_data[$request["currentPickNumber"]];
+    }else{
+      $current_pick_data = array();
+    }
 
 
 
@@ -162,11 +166,18 @@ class DraftController extends Controller
           $max_value = $return_data[$counter]["bans"];
         }
 
+        if(isset($hero_win_rate_data_array[$hero])){
+          $return_data[$counter]["win_rate"] = $hero_win_rate_data_array[$hero]["win_rate"];
+          $return_data[$counter]["win_rate_confidence"] = $hero_win_rate_data_array[$hero]["win_rate_confidence"];
+          $return_data[$counter]["influence"] = $hero_win_rate_data_array[$hero]["influence"];
+          $return_data[$counter]["ban_rate"] = $hero_win_rate_data_array[$hero]["ban_rate"];
+        }else{
+          $return_data[$counter]["win_rate"] = 0;
+          $return_data[$counter]["win_rate_confidence"] = 0;
+          $return_data[$counter]["influence"] = 0;
+          $return_data[$counter]["ban_rate"] = 0;
+        }
 
-        $return_data[$counter]["win_rate"] = $hero_win_rate_data_array[$hero]["win_rate"];
-        $return_data[$counter]["win_rate_confidence"] = $hero_win_rate_data_array[$hero]["win_rate_confidence"];
-        $return_data[$counter]["influence"] = $hero_win_rate_data_array[$hero]["influence"];
-        $return_data[$counter]["ban_rate"] = $hero_win_rate_data_array[$hero]["ban_rate"];
 
 
 
@@ -234,7 +245,7 @@ class DraftController extends Controller
     //$cache_time = 1;
 
     $ban_draft_order_data = Cache::remember($cache, $cache_time, function () use ($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region){
-      $initial_data = new \GlobalHeroDraftOrder($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region);
+      $initial_data = new \GlobalHeroDraftOrderData($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region);
       $return_data = $initial_data->getData(array(4, 5, 6, 7, 8, 11, 12, 13, 14, 15));
       return $return_data;
     });
@@ -399,7 +410,7 @@ class DraftController extends Controller
     //$cache_time = 1;
 
     $ban_draft_order_data = Cache::remember($cache, $cache_time, function () use ($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region){
-      $pick_data = new \GlobalHeroDraftOrder($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region);
+      $pick_data = new \GlobalHeroDraftOrderData($game_versions_minor, $game_type, $player_league_tier, $hero_league_tier, $role_league_tier, $game_map, $hero_level, $region);
       $return_data = $pick_data->getData(array(4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15));
       return $return_data;
     });

@@ -14,18 +14,18 @@ public/hot
 storage/*.key
 .env
 .env_local
+.env-orig
 Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-app.yaml
-.gcloudignore
 robots.txt
-
+app.yaml
 
 /public/css/*
 /public/js/*
+/public/images/heroesimages
 
 /vol_db_hp
 /database/seeds/.NO-SEED
-
+prod-app.yaml
