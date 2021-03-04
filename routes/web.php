@@ -124,4 +124,3 @@ Route::post('/account/optout/save', 'AccountController@optout');
 Route::get('/Gamedata', 'GamedataController@heroes');
 Route::get('/Gamedata/Heroes', 'GamedataController@heroes');
 Route::get('/Gamedata/Heroes/{id}', 'GamedataController@hero');
-

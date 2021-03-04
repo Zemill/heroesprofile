@@ -30,9 +30,15 @@
         <a class="nav-link active" href="/Drafter" id="drafter-link">Drafter</a>
       </li>
 
+
       <li class="nav-item">
-        <a class="nav-link active" href="/docs" id="drafter-link">Documentation</a>
+        <a class="nav-link active" href="/Gamedata" id="drafter-link">Game Data</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="/docs" id="documentation-link">Documentation</a>
+      </li>
+
 </div>
 
 
