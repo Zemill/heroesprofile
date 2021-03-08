@@ -29,21 +29,7 @@
 
       </div>
 
-      <div class="disclaimer"><p>Heroes Profile is entirely funded by its developers. No ads are used on the site. If you like the site, consider donating to our <a href="https://www.patreon.com/heroesprofile" target="_blank">Patreon</a>.  Even $1 helps. Heroes Profile has no affiliation with Blizzard or Heroes of the Storm. Data for the site provided by <a href="https://hotsapi.net" target="_blank">HotsAPI</a>. Upload your replays to HotsAPI for most accurate data.</p></div>
+      <div class="disclaimer"><p>Heroes Profile is funded by its developers. If you like the site, consider donating to our <a href="https://www.patreon.com/heroesprofile" target="_blank">Patreon</a>.  Even $1 helps. Heroes Profile has no affiliation with Blizzard or Heroes of the Storm. Data for the site provided by <a href="https://hotsapi.net" target="_blank">HotsAPI</a>. Upload your replays to HotsAPI for most accurate data.</p></div>
     </div>
   </div>
 </footer>
-
-<script>
-  $(document).ready(function() {
-
-    $('.date-format-2, .date-format').each(function(){
-      var originaldatehtml = $(this).html();
-      var originaldate = moment.tz(originaldatehtml,'Atlantic/Reykjavik');
-
-      $(this).html(originaldate.clone().local().format('MM/DD/YYYY h:mm:ss a'));
-      $(this).show();
-      $(this).removeClass('date-format-2, date-format');
-    });
-  });
-</script>

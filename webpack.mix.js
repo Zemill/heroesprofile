@@ -12,18 +12,5 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-.js('resources/js/custom-datatables.js', 'public/js')
+    .vue()
     .sass('resources/sass/app.scss', 'public/css');
-
-mix.copy('resources/js/createTableAjax.js', 'public/js');
-mix.copy('resources/js/createTableJS.js', 'public/js');
-
-mix.copy('resources/js/datatables.min.js', 'public/js');
-mix.copy('resources/css/datatables.min.css', 'public/css');
-
-mix.copy('resources/js/popup.js', 'public/js');
-mix.copy('resources/js/bootbox.min.js', 'public/js');
-
-mix.copy('resources/js/extraHeader.js', 'public/js');
-
-mix.copy('resources/css/documentation.css', 'public/css');

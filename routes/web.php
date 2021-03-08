@@ -12,7 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
+//Routing
+Route::get('/', 'LandingPageController@show');
+Route::get('/Global/Leaderboard', 'GlobalLeaderboardController@show');
+
+
+//Backend Function Calls
+
+
+
+
+
+
+
+
+
 
 ///For Testing
 Route::get('getGlobalStatData', 'GlobalStatController@getData'); //For Testing Purposes.  Remove later
@@ -52,12 +67,10 @@ Route::post('profile/getTalentsData', 'ProfileController@getTalentsData');
 
 
 //Main Routing
-Route::get('/', 'LandingPageController@show');
 Route::get('/search', 'SearchController@show');
 Route::get('/Account', 'AccountController@show');
 
 //Global Stats
-Route::get('/Global/Leaderboard', 'GlobalLeaderboardController@show');
 Route::get('/Global/Stats', 'GlobalStatController@show');
 Route::get('/Global/Stats/Maps', 'GlobalHeroStatMapController@show');
 Route::get('/Global/Stats/Matchups', 'GlobalHeroStatMatchupController@show');
@@ -79,10 +92,9 @@ Route::get('/Profile/Talents', 'ProfileController@talents');
 Route::get('/Match/Single', 'MatchController@show');
 //Route::get('getSingeMatchData', 'MatchController@getMatchData');
 //Route::post('getSingeMatchData', 'MatchController@getMatchData');
-*/
+
 
 //Drafter
-Route::get('/', 'DraftController@show');
 Route::get('/Drafter', 'DraftController@show');
 
 //Bans

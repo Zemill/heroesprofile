@@ -60,7 +60,7 @@ class GlobalLeaderboardController extends Controller
   }
 
   public function show(){
-    return view('Global.table',
+    return view('Global.leaderboard',
     [
       'tableid' => 'leaderboard-table',
       'title' => 'Global Leaderboard', // Page title
@@ -71,15 +71,6 @@ class GlobalLeaderboardController extends Controller
       'inputUrl' => "/getGlobalLeaderboardData",
       'columndata' => $this->splitColumn($this->columns),
       'page' => 'leaderboard',
-
-      //Table Customizations
-      'inputSortOrder' => array(4 => "desc"),
-      'inputPaging' => true,
-      'inputSearching' => true,
-      'inputColReorder' => true,
-      'inputFixedHeader' => true,
-      'inputBInfo' => true,
-
     ]);
   }
 
