@@ -20,7 +20,7 @@
       </b-dropdown>
 
 
-      <!--
+
       <b-dropdown id="dropdown-form2"  ref="dropdown2"  boundary="window" @hidden="updateFields()">
         <template v-slot:button-content>
           Game Type {{ form.gametype | labels }}
@@ -32,6 +32,8 @@
           <b-button @click="hideDropdowns()" variant="primary" class="menu-close">Apply</b-button>
         </b-dropdown-form>
       </b-dropdown>
+
+
       <b-dropdown id="dropdown-formheroes"  ref="dropdownheroes"  boundary="window" @hidden="updateFields()">
         <template v-slot:button-content>
           Heroes {{ form.hero | labels }}
@@ -46,6 +48,8 @@
           <b-button @click="hideDropdowns()" variant="primary" class="menu-close">Apply</b-button>
         </b-dropdown-form>
       </b-dropdown>
+
+
       <b-dropdown id="dropdown-form3"  ref="dropdown3"  boundary="window" @hidden="updateFields()">
         <template v-slot:button-content>
           Rank
@@ -70,6 +74,8 @@
           <b-button @click="hideDropdowns()" variant="primary" class="menu-close">Apply</b-button>
         </b-dropdown-form>
       </b-dropdown>
+
+
       <b-dropdown id="dropdown-form4"  ref="dropdown4"  boundary="window" @hidden="updateFields()">
         <template v-slot:button-content>
           More
@@ -95,7 +101,6 @@
         </b-dropdown-form>
       </b-dropdown>
 
-    -->
     </nav>
   </div>
 </template>
