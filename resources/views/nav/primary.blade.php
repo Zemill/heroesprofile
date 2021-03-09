@@ -25,18 +25,14 @@
   <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
 
-
-            <li class="nav-item">
-              <a class="nav-link active" href="/docs" id="drafter-link">Documentation</a>
-            </li>
+      
+      <li class="nav-item">
+        <a class="nav-link active" href="/docs" id="drafter-link">Documentation</a>
+      </li>
 
 
       <li class="nav-item">
         <a class="nav-link active" href="/Drafter" id="drafter-link">Drafter</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link active" href="/docs" id="drafter-link">Documentation</a>
       </li>
 
 
@@ -65,36 +61,36 @@
         <button class="btn btn-sm btn-primary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </ul>
-</div>
-<!-- Right Side Of Navbar -->
-<ul class="navbar-nav">
-  <!-- Authentication Links -->
-  @guest
-    <li class="nav-item">
-      <a class="nav-link" href="/login/battlenet">{{ __('Battlenet Login') }}</a>
-    </li>
-  @else
-    <li class="nav-item dropdown">
-      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ Auth::user()->battletag }}<span class="caret"></span>
-      </a>
-
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-        <a class="dropdown-item" href="/Profile?blizz_id={{ getBlizzID(Auth::user()->battletag, Auth::user()->region) }}&battletag={{ substr(Auth::user()->battletag, 0, strpos(Auth::user()->battletag, "#")) }}&region={{ Auth::user()->region }}">
-          {{ __('Profile') }}
+  </div>
+  <!-- Right Side Of Navbar -->
+  <ul class="navbar-nav">
+    <!-- Authentication Links -->
+    @guest
+      <li class="nav-item">
+        <a class="nav-link" href="/login/battlenet">{{ __('Battlenet Login') }}</a>
+      </li>
+    @else
+      <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          {{ Auth::user()->battletag }}<span class="caret"></span>
         </a>
 
-        <a class="dropdown-item" href="/Account">
-          {{ __('Settings') }}
-        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-        <a class="dropdown-item" href="/logout/battlenet">
-          {{ __('Log Out') }}
-        </a>
-      </div>
-    </li>
-  @endguest
-</ul>
+          <a class="dropdown-item" href="/Profile?blizz_id={{ getBlizzID(Auth::user()->battletag, Auth::user()->region) }}&battletag={{ substr(Auth::user()->battletag, 0, strpos(Auth::user()->battletag, "#")) }}&region={{ Auth::user()->region }}">
+            {{ __('Profile') }}
+          </a>
+
+          <a class="dropdown-item" href="/Account">
+            {{ __('Settings') }}
+          </a>
+
+          <a class="dropdown-item" href="/logout/battlenet">
+            {{ __('Log Out') }}
+          </a>
+        </div>
+      </li>
+    @endguest
+  </ul>
 
 </nav>

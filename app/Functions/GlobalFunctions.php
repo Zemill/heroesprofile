@@ -169,7 +169,7 @@ if (!function_exists('getHeroesIDMap')) {
   *
   * */
   function getHeroesIDMap($key_value, $value){
-    $heroes = DB::table('heroes')->select($key_value, $value)->get();
+    $heroes = \App\Models\Hero::select($key_value, $value)->get();
     $heroes = json_decode(json_encode($heroes),true);
     $return_data = array();
     for($i = 0; $i < count($heroes); $i++){
@@ -642,5 +642,114 @@ if (!function_exists('getBlizzID')) {
   * */
   function getBlizzID($battletag, $region){
     return \App\Models\Battletag::select('blizz_id')->where('battletag', $battletag)->where('region', $region)->max('blizz_id');
+  }
+}
+
+if (!function_exists('getMajorPatches')) {
+  function getMajorPatches(){
+    $patches = getFilterVersions();
+    $return_data = array();
+    $counter = 0;
+    foreach ($patches as $key => $value){
+      $data = array();
+      $data["key"] = $key;
+      $data["value"] = $key;
+      $data["text"] = $key;
+      $return_data[$counter] = $data;
+      $counter++;
+    }
+    return $return_data;
+  }
+}
+
+if (!function_exists('getMinorPatches')) {
+  function getMinorPatches(){
+    $patches = getFilterVersions();
+    $return_data = array();
+    $counter = 0;
+    foreach ($patches as $key => $value){
+      $data = array();
+      $data["key"] = $key;
+      $data["value"] = $key;
+      $data["text"] = $key;
+      $return_data[$counter] = $data;
+      $counter++;
+    }
+    return $return_data;
+  }
+}
+
+
+if (!function_exists('getGameTypesForFilters')) {
+  function getGameTypesForFilters(){
+    return array(
+        [
+          "key" => "Quick Match",
+          "value" => 1,
+          "text" => "Quick Match",
+          "icon" => ""
+        ],
+        [
+          "key" => "Unranked Draft",
+          "value" => 2,
+          "text" => "Unranked Draft",
+          "icon" => ""
+        ],
+        [
+          "key" => "Storm League",
+          "value" => 5,
+          "text" => "Storm League",
+          "icon" => ""
+        ],
+        [
+          "key" => "ARAM",
+          "value" => 6,
+          "text" => "ARAM",
+          "icon" => ""
+        ]
+      );
+  }
+}
+
+if (!function_exists('getHeroesForFilters')) {
+  function getHeroesForFilters(){
+    $heroes = \App\Models\Hero::select('id', 'name', 'short_name', 'new_role', 'build_copy_name')->orderBy('name', 'ASC')->get();
+
+    $return_data = array();
+    $counter = 0;
+    for($i = 0; $i < count($heroes); $i++){
+      $data = array();
+      $data["id"] = $heroes[$i]->id;
+      $data["name"] = $heroes[$i]->name;
+      $data["short_name"] = $heroes[$i]->short_name;
+      $data["new_role"] = $heroes[$i]->new_role;
+      $data["build_copy_name"] = $heroes[$i]->build_copy_name;
+
+      $return_data[$counter++] = $data;
+      $counter++;
+    }
+    return $return_data;
+  }
+}
+
+if (!function_exists('getRankNames')) {
+  function getRankNames(){
+    return \App\Models\LeagueTier::get();
+  }
+}
+
+if (!function_exists('getHeroLevelsForFilters')) {
+  function getHeroLevelsForFilters(){
+    return array(
+      "1-5" => "1-5",
+      "5-10" => "5-10",
+      "10-15" => "10-15",
+      "15-20" => "15-20",
+      "25-40" => "25-40",
+      "40-60" => "40-60",
+      "60-80" => "60-80",
+      "80-100" => "80-100",
+      "100-999" => "100-999",
+    );
   }
 }

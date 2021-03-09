@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <table-component :columns="columns" :inputurl="inputurl"></table-component>
+    <table-component :fields="fields" :inputurl="inputurl"></table-component>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import TableComponent from './TableComponent.vue'
       TableComponent
     },
     props: {
-      columns: Array,
+      fields: Array,
       inputurl: String,
     },
     mounted() {

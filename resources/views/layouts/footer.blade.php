@@ -29,7 +29,7 @@
 
       </div>
 
-      <div class="disclaimer"><p>Heroes Profile is funded by its developers. If you like the site, consider donating to our <a href="https://www.patreon.com/heroesprofile" target="_blank">Patreon</a>.  Even $1 helps. Heroes Profile has no affiliation with Blizzard or Heroes of the Storm. Data for the site provided by <a href="https://hotsapi.net" target="_blank">HotsAPI</a>. Upload your replays to HotsAPI for most accurate data.</p></div>
+      <div class="disclaimer"><p>Heroes Profile is funded by its developers. If you like the site, consider donating to our <a href="https://www.patreon.com/heroesprofile" target="_blank">Patreon</a>.  Even $1 helps. Heroes Profile has no affiliation with Blizzard or Heroes of the Storm.</p></div>
     </div>
   </div>
 </footer>

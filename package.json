@@ -31,6 +31,7 @@
         "mdbootstrap": "^4.19.2",
         "moment-timezone": "^0.5.33",
         "vue-axios": "^3.2.4",
+        "vue-multiselect": "^2.1.6",
         "vue-router": "^3.5.1"
     }
 }

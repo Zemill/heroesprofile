@@ -15,8 +15,10 @@ class LeaderboardData
   private $season;
   private $region;
   private $tier;
+  private $page;
+  private $RESULTS_PER_PAGE = 250;
 
-  public function __construct($type, $hero, $role, $game_type, $season, $region, $tier) {
+  public function __construct($type, $hero, $role, $game_type, $season, $region, $tier, $page) {
     $this->type = $type;
     $this->hero = $hero;
     $this->role = $role;
@@ -24,6 +26,7 @@ class LeaderboardData
     $this->season = $season;
     $this->region = $region;
     $this->tier = $tier;
+    $this->page = $page;
   }
 
   public function getLeaderboardData(){
@@ -66,6 +69,8 @@ class LeaderboardData
                             'level_twenty',
                             'hero_build_games_played'
                             )
+                          ->skip($this->page * $this->RESULTS_PER_PAGE)
+                          ->take($this->RESULTS_PER_PAGE)
                           ->get();
 
                           /*
