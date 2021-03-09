@@ -75,6 +75,8 @@ class GlobalLeaderboardController extends Controller
   }
 
   public function getData(Request $request){
+
+    /*
     $filters_instance = \Filters::instance();
     $filters = $filters_instance->formatFilterData($request["data"], 0, 0);
     $leaderboard_type = $filters_instance->leaderboard_type;
@@ -84,6 +86,15 @@ class GlobalLeaderboardController extends Controller
     $season = $filters_instance->season;
     $game_type = $filters_instance->single_game_type;
     $tier = $filters_instance->tier;
+
+    */
+    $leaderboard_type = "player";
+    $hero = "";
+    $role = "";
+    $game_type = 5;
+    $season = 18;
+    $region = "";
+    $tier = "";
 
     $leaderboardData = new \LeaderboardData($leaderboard_type, $hero, $role, $game_type, $season, $region, $tier);
     $return_data = $leaderboardData->getLeaderboardData();

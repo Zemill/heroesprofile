@@ -30,16 +30,14 @@
               <a class="nav-link active" href="/docs" id="drafter-link">Documentation</a>
             </li>
 
-            
+
       <li class="nav-item">
         <a class="nav-link active" href="/Drafter" id="drafter-link">Drafter</a>
       </li>
 
-<<<<<<< Updated upstream
       <li class="nav-item">
         <a class="nav-link active" href="/docs" id="drafter-link">Documentation</a>
       </li>
-=======
 
 
       <li class="nav-item">
@@ -67,7 +65,6 @@
         <button class="btn btn-sm btn-primary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </ul>
->>>>>>> Stashed changes
 </div>
 <!-- Right Side Of Navbar -->
 <ul class="navbar-nav">
